@@ -23,3 +23,23 @@ Before using **5GFlowParser**, ensure your environment meets the following requi
 Install dependencies with:
 ```bash
 pip install -r requirements.txt
+
+## Installation
+Clone the repository:
+bash
+Copy code
+git clone https://github.com/yourusername/5GFlowInsight.git
+Navigate to the project directory:
+bash
+Copy code
+cd 5GFlowInsight
+Usage
+Place your pcap file(s) in the pcaps/ directory.
+Execute the tool with:
+bash
+Copy code
+python flow_extractor.py --input pcaps/example.pcap --output output/features.csv
+Command-line options:
+--input: Path to the input pcap file.
+--output: Path to save extracted features.
+--filter: Optional BPF filter for narrowing down packets (e.g., sctp).
