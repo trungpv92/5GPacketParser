@@ -46,3 +46,11 @@ python 5G_flow_parser.py --input pcaps/example.pcap --output output/features.csv
   - --input: Path to the input pcap file.
   - --output: Path to save extracted features.
   - --filter: Optional BPF filter for narrowing down packets (e.g., sctp).
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Contact
+For any issues, questions, or feature requests, feel free to reach out:
+  - Author: Trung Phan Van (trungpv92)
+  - Email: trung.phan-van@etit.tu-chemnitz.de
