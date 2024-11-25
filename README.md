@@ -17,29 +17,32 @@
 Before using **5GFlowParser**, ensure your environment meets the following requirements:
 - Python 3.7 or higher
 - `scapy` (for packet parsing)
+- `pycrate` (for NGAP and NAS encoders and decoders)
 - `pyshark` (for pcap handling)
 - Additional libraries listed in `requirements.txt`
 
 Install dependencies with:
 ```bash
 pip install -r requirements.txt
+```
 
 ## Installation
-Clone the repository:
-bash
-Copy code
-git clone https://github.com/yourusername/5GFlowInsight.git
-Navigate to the project directory:
-bash
-Copy code
-cd 5GFlowInsight
-Usage
-Place your pcap file(s) in the pcaps/ directory.
-Execute the tool with:
-bash
-Copy code
-python flow_extractor.py --input pcaps/example.pcap --output output/features.csv
-Command-line options:
---input: Path to the input pcap file.
---output: Path to save extracted features.
---filter: Optional BPF filter for narrowing down packets (e.g., sctp).
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/5GFlowParser.git
+```
+2. Navigate to the project directory:
+```bash
+cd 5GFlowParser
+```
+
+## Usage
+1. Place your pcap file(s) in the ```pcaps/``` directory.
+2. Execute the tool with:
+```bash
+python 5G_flow_parser.py --input pcaps/example.pcap --output output/features.csv
+```
+3. Command-line options:
+  - --input: Path to the input pcap file.
+  - --output: Path to save extracted features.
+  - --filter: Optional BPF filter for narrowing down packets (e.g., sctp).
