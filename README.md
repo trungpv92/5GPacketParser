@@ -3,7 +3,7 @@
 **5GPacketParser** is an open-source Python tool for parsing NGAP and NAS protocol packets from 5G network traffic and extracting meaningful features from pcap files. This tool is designed for applications in network analysis, performance monitoring, anomaly detection, and research in 5G communication systems.
 
 **About This Project**: 
-The development of 5GPacketParser is part of ongoing research at Technische Universität Chemnitz, Germany. This work is supported by research projects funded by BSI (the Federal Cybersecurity Authority in Germany).
+The development of 5GPacketParser is part of ongoing research at Technische Universität Chemnitz, Germany. This work is supported by research projects funded by BSI (German Federal Cybersecurity Authority).
 
 ## Key Features
 - **Comprehensive Parsing**: Handles NGAP and NAS protocol layers encapsulated in SCTP and IP packets.
