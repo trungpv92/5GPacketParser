@@ -2,11 +2,25 @@
 
 **5GPacketParser** is an open-source Python tool for parsing NGAP and NAS protocol packets from 5G network traffic and extracting meaningful features from pcap files. This tool is designed for applications in network analysis, performance monitoring, anomaly detection, and research in 5G communication systems.
 
+**About This Project**: 
+The development of 5GPacketParser is part of ongoing research at Technische Universität Chemnitz, Germany. This work is supported by research projects funded by BSI (the Federal Cybersecurity Authority in Germany).
+
 ## Key Features
 - **Comprehensive Parsing**: Handles NGAP and NAS protocol layers encapsulated in SCTP and IP packets.
-- **Feature Extraction**: Captures features such as IP addresses, ports, timestamps, and protocol-specific metrics.
 - **5G Traffic Insights**: Focuses on 5G-specific protocols, enabling precise analysis of 5G network behavior.
 - **Customizable Workflow**: Offers flexibility in filtering packets and customizing output formats, i.e., CSV (Currently).
+
+## Feature Extraction Update
+- **Current Version**:
+In the current version of 5GPacketParser, the tool extracts a fixed set of features, including:
+
+    _RequestMessages_, _SuccessfulResponseMessages_, _RequestResponseRatio_, _RegistrationRate_, 
+    _PDURequestRate_, _RequestIAT_, _ProcedureCodeNumber_, _ProcedureCodeRate_.
+
+- **Upcoming Version (Under Development)**:
+The next version of 5GPacketParser will introduce user-defined feature extraction, allowing users to specify and customize the extracted features according to their needs. This enhancement will provide greater flexibility for network traffic analysis and research purposes.
+
+_Stay tuned for updates!_ 🚀
 
 ## Use Cases
 - **Network Performance Monitoring**: Analyze flow behavior to optimize 5G network performance.
@@ -39,11 +53,13 @@ cd 5GPacketParser
 1. Place your pcap file(s) in the ```pcaps/``` directory.
 2. Execute the tool with:
 ```bash
-python 5GPacketParser.py --input pcaps/example.pcap --output output/features.csv
+python 5GPacketParser.py --input pcaps/example.pcap --output output/features.csv --packetcount 0 --windowtime 1.0
 ```
 3. Command-line options:
   - --input: Path to the input pcap file.
   - --output: Path to save extracted features.
+  - --packetcount: Number of packets to process (default: 0 that means all packets).
+  - --windowtime: Time window for packet capture in seconds (default: 1.0).
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
