@@ -1,3 +1,5 @@
+__version__ = "1.0.1"
+
 import argparse
 from scapy.layers.inet import IP
 from scapy.layers.sctp import SCTP
@@ -9,6 +11,10 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description="5G Packet Parser")
     parser.add_argument("--input", required=True, help="Path to input pcap file")
     parser.add_argument("--output", required=True, help="Path to output CSV file")
+    parser.add_argument("--packetcount", type=int, default=0, 
+                        help="Number of packets to process (default: 0 that means all packets)")
+    parser.add_argument("--windowtime", type=float, default=1.0, 
+                        help="Time window for packet capture in seconds (default: 1.0)")   
     return parser.parse_args()
 
 def asn1_to_tuple(asn1_obj):
@@ -28,10 +34,8 @@ def decode_ngap_payload(ngap_payload):
     try:
         # Decode the NGAP payload
         ngap_pdu.from_aper(ngap_payload)  # Decode with ASN.1 PER format
-        ngap_tuple = asn1_to_tuple(ngap_pdu)  # Convert to tuple
-        #print(ngap_pdu.to_asn1())            
+        ngap_tuple = asn1_to_tuple(ngap_pdu)  # Convert to tuple           
     except Exception as e:
-        #print(f"Error decoding NGAP payload: {e}")
         ngap_tuple = ()
     return ngap_tuple
 
@@ -74,7 +78,7 @@ class FeatureExtrator:
         PreviousRequestAT = 0
         TotalRequestAT = 0        
 
-        #Add Feature Description to the first row of the CSV file
+        # Add Feature Description to the first row of the CSV file
         FeatureDescription = ["RequestMessages","SuccessfulResponseMessages","RequestResponseRatio","RegistrationRate","PDURequestRate","RequestIAT","ProcedureCodeNumber","ProcedureCodeRate"]
         FeatureList.append(FeatureDescription)
         
@@ -84,7 +88,7 @@ class FeatureExtrator:
             packet_count += 1
             if packet_count == self.packet_limit + 1 and self.packet_limit != 0:
                 break
-                
+
             if hasattr(packet, 'time'):  # Ensure packet has a time attribute
                 timestamp = packet.time  # Unix timestamp
                 if packet_count == 0:
@@ -168,6 +172,7 @@ class FeatureExtrator:
                     current_chunk = current_chunk.payload
 
         print(f"\nThere are ",packet_count," packets have been successfully processed!")
+        
 
 if __name__ == "__main__":
 
@@ -180,9 +185,9 @@ if __name__ == "__main__":
 
     # Create an instance of PacketParser and run it
     # NOTE: packet_limit indicates the number of parsing packets counted from the 1st packet in the pcap file
-    # NOTE: set packet_limit = 0 means the whole packets will be parsed
+    # NOTE: set packet_limit = 0 means all packets will be parsed
     start_time = time.time()
-    featurefinder = FeatureExtrator(args.input, packet_limit=0, window_time=1)
+    featurefinder = FeatureExtrator(args.input, packet_limit=args.packetcount, window_time=args.windowtime)
     featurefinder.run()
     end_time = time.time()
 
