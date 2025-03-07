@@ -27,7 +27,15 @@ _Stay tuned for updates!_ 🚀
 - **Security Analysis**: Extract features for use in intrusion detection or anomaly detection systems.
 - **Research Applications**: Study traffic characteristics for academic or commercial research.
 
-## Prerequisites
+## Installation
+1. Clone the repository:
+```bash
+git clone https://github.com/trungpv92/5GPacketParser.git
+```
+2. Navigate to the project directory:
+```bash
+cd 5GPacketParser
+```
 Before using **5GPacketParser**, ensure your environment meets the following requirements:
 - Python 3.7 or higher
 - `scapy` (for packet parsing)
@@ -37,16 +45,6 @@ Before using **5GPacketParser**, ensure your environment meets the following req
 Install dependencies with:
 ```bash
 pip install -r requirements.txt
-```
-
-## Installation
-1. Clone the repository:
-```bash
-git clone https://github.com/trungpv92/5GPacketParser.git
-```
-2. Navigate to the project directory:
-```bash
-cd 5GPacketParser
 ```
 
 ## Usage
