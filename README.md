@@ -46,7 +46,7 @@ git clone https://github.com/trungpv92/5GPacketParser.git
 ```
 2. Navigate to the project directory:
 ```bash
-cd 5GPacketParser
+cd 5GPacketParser/src
 ```
 
 ## Usage
