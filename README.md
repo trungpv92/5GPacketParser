@@ -6,7 +6,7 @@
 - **Comprehensive Parsing**: Handles NGAP and NAS protocol layers encapsulated in SCTP and IP packets.
 - **Feature Extraction**: Captures features such as IP addresses, ports, timestamps, and protocol-specific metrics.
 - **5G Traffic Insights**: Focuses on 5G-specific protocols, enabling precise analysis of 5G network behavior.
-- **Customizable Workflow**: Offers flexibility in filtering packets and customizing output formats.
+- **Customizable Workflow**: Offers flexibility in filtering packets and customizing output formats, i.e., CSV (Currently).
 
 ## Use Cases
 - **Network Performance Monitoring**: Analyze flow behavior to optimize 5G network performance.
@@ -14,7 +14,7 @@
 - **Research Applications**: Study traffic characteristics for academic or commercial research.
 
 ## Prerequisites
-Before using **5GFlowParser**, ensure your environment meets the following requirements:
+Before using **5GPacketParser**, ensure your environment meets the following requirements:
 - Python 3.7 or higher
 - `scapy` (for packet parsing)
 - `pycrate` (for NGAP and NAS encoders and decoders)
@@ -39,7 +39,7 @@ cd 5GPacketParser
 1. Place your pcap file(s) in the ```pcaps/``` directory.
 2. Execute the tool with:
 ```bash
-python 5G_packet_parser.py --input pcaps/example.pcap --output output/features.csv
+python 5GPacketParser.py --input pcaps/example.pcap --output output/features.csv
 ```
 3. Command-line options:
   - --input: Path to the input pcap file.
