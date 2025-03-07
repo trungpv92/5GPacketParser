@@ -1,4 +1,4 @@
 # src/__init__.py
-PACKAGE_NAME = "5GFlowParser"
-VERSION = "1.0.0"
+PACKAGE_NAME = "5GPacketParser"
+VERSION = "1.0.1"
 
