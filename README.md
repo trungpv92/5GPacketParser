@@ -11,7 +11,7 @@ The development of 5GPacketParser is part of ongoing research at Technische Univ
 - **Customizable Workflow**: Offers flexibility in filtering packets and customizing output formats, i.e., CSV (Currently).
 
 ## Feature Extraction Update
-- **Current Version**:
+- **Current Version 1.0.1**:
 In the current version of 5GPacketParser, the tool extracts a fixed set of features, including:
 
     _RequestMessages_, _SuccessfulResponseMessages_, _RequestResponseRatio_, _RegistrationRate_, 
